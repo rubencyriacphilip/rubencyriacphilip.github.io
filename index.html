@@ -40,12 +40,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 3rem;
+    gap: 2rem;
     padding: 4rem 3rem 5rem;
     max-width: 1200px;
     margin: 0 auto;
   }
-  .hero-text { max-width: 620px; }
+  .hero-text { max-width: 560px; }
   .greeting {
     color: #555;
     font-size: 1.1rem;
@@ -63,9 +63,9 @@
   }
   .avatar {
     flex-shrink: 0;
-    width: 260px;
-    height: 260px;
-    border-radius: 12px;
+    width: 320px;
+    height: 320px;
+    border-radius: 14px;
     overflow: hidden;
     background: #fce8d6;
   }
@@ -127,21 +127,34 @@
   }
 
   .work-item {
-    padding: 1.5rem 0;
+    display: block;
+    padding: 1.5rem 1.25rem;
+    margin: 0 -1.25rem;
     border-top: 1px solid #e4e4e4;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background 0.15s ease;
   }
-  .work-item:last-child { border-bottom: 1px solid #e4e4e4; }
+  .work-item:last-of-type { border-bottom: 1px solid #e4e4e4; }
+  a.work-item:hover { background: #f7f6f4; cursor: pointer; }
   .work-item h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 1.15rem;
     font-weight: 700;
     margin: 0 0 0.4rem;
   }
-  .work-item h3 a {
-    color: inherit;
-    text-decoration: none;
+  .work-arrow {
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    font-weight: 400;
   }
-  .work-item h3 a:hover {
-    text-decoration: underline;
+  a.work-item:hover .work-arrow {
+    opacity: 1;
+    transform: translateX(0);
   }
   .work-item p {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
@@ -168,11 +181,11 @@
   }
 
   @media (max-width: 720px) {
-    .hero { flex-direction: column-reverse; padding: 2.5rem 1.5rem 3rem; }
+    .hero { flex-direction: column-reverse; padding: 2.5rem 1.5rem 3rem; gap: 1.5rem; }
     .nav { padding: 1.25rem 1.5rem; }
     .nav .links a { margin-left: 1rem; }
     main { padding: 0 1.5rem 4rem; }
-    .avatar { width: 180px; height: 180px; }
+    .avatar { width: 220px; height: 220px; }
     .hero h1 { font-size: 2rem; }
   }
 </style>
@@ -239,10 +252,10 @@
     <section id="work">
       <h2>Selected work</h2>
 
-      <div class="work-item">
-        <h3><a href="work/project-1.html">Project title</a></h3>
+      <a class="work-item" href="work/project-1.html">
+        <h3>Project title <span class="work-arrow">→</span></h3>
         <p>Short description of the project, your role, and the outcome.</p>
-      </div>
+      </a>
 
       <div class="work-item">
         <h3>Project title</h3>
