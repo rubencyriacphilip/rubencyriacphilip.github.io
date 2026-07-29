@@ -1,279 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ruben Cyriac Philip - UX Content Designer</title>
-  <style>
-      :root {
-            --bg: #0f1115;
-            --bg-alt: #161923;
-            --card: #1c2030;
-            --accent: #7c9eff;
-            --accent-soft: #7c9eff22;
-            --text: #e7e9ee;
-            --text-dim: #9aa0ad;
-            --radius: 14px;
-      }
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-      }
-      nav {
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.1rem 2rem;
-            background: rgba(15,17,21,0.85);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #ffffff14;
-      }
-      nav .brand {
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            color: var(--text);
-            text-decoration: none;
-      }
-      nav .links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            margin-left: 1.75rem;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-      }
-      nav .links a:hover { color: var(--accent); }
-      header.hero {
-            text-align: center;
-            padding: 6rem 1.5rem 5rem;
-            background:
-                    radial-gradient(circle at 30% 20%, #7c9eff26, transparent 55%),
-                    radial-gradient(circle at 70% 60%, #ff9c7c1c, transparent 50%),
-                    var(--bg);
-      }
-      header.hero .eyebrow {
-            display: inline-block;
-            padding: 0.35rem 0.9rem;
-            border-radius: 999px;
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.4px;
-            margin-bottom: 1.25rem;
-      }
-      header.hero h1 {
-            margin: 0 0 0.6rem;
-            font-size: clamp(2.2rem, 5vw, 3.4rem);
-            font-weight: 800;
-            letter-spacing: -0.5px;
-      }
-      header.hero p {
-            margin: 0 auto;
-            max-width: 560px;
-            color: var(--text-dim);
-            font-size: 1.15rem;
-      }
-      main {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem 5rem;
-      }
-      section { margin-bottom: 4rem; scroll-margin-top: 5rem; }
-      section > h2 {
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-      }
-      section > h2::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent);
-            display: inline-block;
-      }
-      .card {
-            background: var(--card);
-            border: 1px solid #ffffff10;
-            border-radius: var(--radius);
-            padding: 1.75rem 2rem;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-      }
-      .card:hover {
-            transform: translateY(-3px);
-            border-color: #7c9eff44;
-      }
-      .about p { color: var(--text-dim); margin: 0 0 1rem; }
-      .about p:last-child { margin-bottom: 0; }
-      .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 1.25rem;
-      }
-      .timeline .card {
-            position: relative;
-            padding-left: 2.25rem;
-      }
-      .timeline .card::before {
-            content: '';
-            position: absolute;
-            left: 0.9rem;
-            top: 1.9rem;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            box-shadow: 0 0 0 4px var(--accent-soft);
-      }
-      .role-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-      }
-      .role-title { font-weight: 700; font-size: 1.05rem; }
-      .role-meta { color: var(--text-dim); font-size: 0.9rem; }
-      .timeline .card p { color: var(--text-dim); margin: 0.5rem 0 0; }
-      .tag-row { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-      .tag {
-            background: var(--accent-soft);
-            color: var(--accent);
-            font-size: 0.78rem;
-            font-weight: 600;
-            padding: 0.25rem 0.65rem;
-            border-radius: 999px;
-      }
-      .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
-      }
-      .projects-grid .card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 0.5rem; }
-      .contact-links { display: flex; flex-wrap: wrap; gap: 0.9rem; }
-      .contact-links a {
-            color: var(--text);
-            text-decoration: none;
-            background: var(--card);
-            border: 1px solid #ffffff14;
-            padding: 0.6rem 1.1rem;
-            border-radius: 999px;
-            font-size: 0.95rem;
-            transition: all 0.2s ease;
-      }
-      .contact-links a:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-      }
-      footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-dim);
-            font-size: 0.85rem;
-            border-top: 1px solid #ffffff10;
-      }
-    </style>
-  </head>
-  <body>
-      <nav>
-            <a class="brand" href="#">Ruben Cyriac Philip</a>a>
-            <div class="links">
-                    <a href="#about">About</a>a>
-                    <a href="#experience">Experience</a>a>
-                    <a href="#projects">Projects</a>a>
-                    <a href="#contact">Contact</a>a>
-            </div>div>
-      </nav>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ruben Cyriac Philip - UX Content Designer</title>
+<style>
+  :root {
+    --bg: #0f1115;
+    --bg-alt: #161923;
+    --card: #1c2030;
+    --accent: #7c9eff;
+    --accent-soft: #7c9eff22;
+    --text: #e7e9ee;
+    --text-dim: #9aa0ad;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.1rem 2rem;
+    background: rgba(15,17,21,0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #ffffff14;
+  }
+  nav .brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: var(--text);
+    text-decoration: none;
+  }
+  nav .links a {
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-left: 1.75rem;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  nav .links a:hover { color: var(--accent); }
+  header.hero {
+    text-align: center;
+    padding: 6rem 1.5rem 5rem;
+    background:
+      radial-gradient(circle at 30% 20%, #7c9eff26, transparent 55%),
+      radial-gradient(circle at 70% 60%, #ff9c7c1c, transparent 50%),
+      var(--bg);
+  }
+  header.hero .eyebrow {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    margin-bottom: 1.25rem;
+  }
+  header.hero h1 {
+    margin: 0 0 0.6rem;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+  }
+  header.hero p {
+    margin: 0 auto;
+    max-width: 560px;
+    color: var(--text-dim);
+    font-size: 1.15rem;
+  }
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+  section { margin-bottom: 4rem; scroll-margin-top: 5rem; }
+  section > h2 {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  section > h2::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: inline-block;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid #ffffff10;
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: #7c9eff44;
+  }
+  .about p { color: var(--text-dim); margin: 0 0 1rem; }
+  .about p:last-child { margin-bottom: 0; }
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .timeline .card {
+    position: relative;
+    padding-left: 2.25rem;
+  }
+  .timeline .card::before {
+    content: '';
+    position: absolute;
+    left: 0.9rem;
+    top: 1.9rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .role-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .role-title { font-weight: 700; font-size: 1.05rem; }
+  .role-meta { color: var(--text-dim); font-size: 0.9rem; }
+  .timeline .card p { color: var(--text-dim); margin: 0.5rem 0 0; }
+  .tag-row { margin-top: 0.75rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+  .projects-grid .card p { color: var(--text-dim); font-size: 0.95rem; margin-top: 0.5rem; }
+  .contact-links { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+  .contact-links a {
+    color: var(--text);
+    text-decoration: none;
+    background: var(--card);
+    border: 1px solid #ffffff14;
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  .contact-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    border-top: 1px solid #ffffff10;
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a class="brand" href="#">Ruben Cyriac Philip</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-      <header class="hero">
-            <span class="eyebrow">UX Content Designer</span>span>
-            <h1>Ruben Cyriac Philip</h1>
-          <p>Crafting clear, human-centered content for products people actually enjoy using.</p>
-      </header>header>
-  
-    <main>
-          <section id="about">
-                  <h2>About Me</h2>
-                  <div class="card about">
-                            <p>UX Content Designer with hands-on experience in user research, content design, and product design.</p>
-                            <p>I currently write UX content for Microsoft's SharePoint team. Before that, I spent about 6 months on Microsoft Teams, writing for AI features like Recap, AI Interpreter, AI Signer, and Captions.</p>
-                            <p>Before Microsoft, I spent 9 years at RCI driving content strategy and social media strategy. Outside my core role, I took the initiative to improve RCI.com's onboarding through UX writing.</p>
-                  </div>div>
-          </section>section>
+  <header class="hero">
+    <span class="eyebrow">UX Content Designer</span>
+    <h1>Ruben Cyriac Philip</h1>
+    <p>Crafting clear, human-centered content for products people actually enjoy using.</p>
+  </header>
 
-          <section id="experience">
-                  <h2>Experience</h2>
-                  <div class="timeline">
-                            <div class="card">
-                                        <div class="role-header">
-                                                      <span class="role-title">UX Content Designer &mdash; SharePoint</span>span>
-                                                      <span class="role-meta">Microsoft &middot; Current</span>span>
-                                        </div>div>
-                                        <p>Writing UX content for Microsoft's SharePoint team.</p>
-                            </div>div>
-                            <div class="card">
-                                        <div class="role-header">
-                                                      <span class="role-title">UX Content Designer &mdash; Teams</span>span>
-                                                      <span class="role-meta">Microsoft &middot; ~6 months</span>span>
-                                        </div>div>
-                                        <p>Wrote content for AI features on Microsoft Teams.</p>
-                                        <div class="tag-row">
-                                                      <span class="tag">Recap</span>span>
-                                                      <span class="tag">AI Interpreter</span>span>
-                                                      <span class="tag">AI Signer</span>span>
-                                                      <span class="tag">Captions</span>span>
-                                        </div>div>
-                            </div>div>
-                            <div class="card">
-                                        <div class="role-header">
-                                                      <span class="role-title">Content &amp; Social Media Strategy</span>span>
-                                                      <span class="role-meta">RCI &middot; 9 years</span>span>
-                                        </div>div>
-                                        <p>Drove content strategy and social media strategy. Also led an initiative to improve RCI.com's onboarding experience through UX writing.</p>
-                            </div>div>
-                  </div>div>
-          </section>section>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="card about">
+        <p>UX Content Designer with hands-on experience in user research, content design, and product design.</p>
+        <p>I currently write UX content for Microsoft's SharePoint team. Before that, I spent about 6 months on Microsoft Teams, writing for AI features like Recap, AI Interpreter, AI Signer, and Captions.</p>
+        <p>Before Microsoft, I spent 9 years at RCI driving content strategy and social media strategy. Outside my core role, I took the initiative to improve RCI.com's onboarding through UX writing.</p>
+      </div>
+    </section>
 
-          <section id="projects">
-                  <h2>Projects</h2>
-                  <div class="projects-grid">
-                            <div class="card">
-                                        <strong>Project title</strong>
-                                      <p>Short description of the project, your role, and the outcome.</p>
-                            </div>div>
-                          <div class="card">
-                                    <strong>Project title</strong>
-                                    <p>Short description of the project, your role, and the outcome.</p>
-                          </div>div>
-                  </div>div>
-          </section>section>
-    
-        <section id="contact">
-              <h2>Contact</h2>
-              <div class="contact-links">
-                      <a href="mailto:you@example.com">Email</a>a>
-                      <a href="https://github.com/rubencyriacphilip">GitHub</a>a>
-                      <a href="#">LinkedIn</a>a>
-              </div>div>
-        </section>section>
-    </main>
-  
-    <footer>&copy; 2026 Ruben Cyriac Philip</footer>
-  </body>
-</html>html>
-</footer></p></p></strong>
-    </main></p></h1>
-      </nav>
-  </body>
-  </style></title>
-  </head>
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="card">
+          <div class="role-header">
+            <span class="role-title">UX Content Designer &mdash; SharePoint</span>
+            <span class="role-meta">Microsoft &middot; Current</span>
+          </div>
+          <p>Writing UX content for Microsoft's SharePoint team.</p>
+        </div>
+        <div class="card">
+          <div class="role-header">
+            <span class="role-title">UX Content Designer &mdash; Teams</span>
+            <span class="role-meta">Microsoft &middot; ~6 months</span>
+          </div>
+          <p>Wrote content for AI features on Microsoft Teams.</p>
+          <div class="tag-row">
+            <span class="tag">Recap</span>
+            <span class="tag">AI Interpreter</span>
+            <span class="tag">AI Signer</span>
+            <span class="tag">Captions</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="role-header">
+            <span class="role-title">Content &amp; Social Media Strategy</span>
+            <span class="role-meta">RCI &middot; 9 years</span>
+          </div>
+          <p>Drove content strategy and social media strategy. Also led an initiative to improve RCI.com's onboarding experience through UX writing.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="card">
+          <strong>Project title</strong>
+          <p>Short description of the project, your role, and the outcome.</p>
+        </div>
+        <div class="card">
+          <strong>Project title</strong>
+          <p>Short description of the project, your role, and the outcome.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-links">
+        <a href="mailto:you@example.com">Email</a>
+        <a href="https://github.com/rubencyriacphilip">GitHub</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 Ruben Cyriac Philip</footer>
+</body>
+</html>
