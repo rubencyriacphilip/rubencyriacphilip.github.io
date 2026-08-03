@@ -40,10 +40,10 @@ body {
 .hero {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
+  justify-content: center;
+  gap: 3.5rem;
   padding: clamp(2rem, 6vh, 4rem) clamp(1.5rem, 4vw, 4rem) 4rem;
-  max-width: 1360px;
+  max-width: 1100px;
   margin: 0 auto;
   min-height: calc(100vh - 82px);
   position: relative;
