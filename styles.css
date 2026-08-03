@@ -43,7 +43,7 @@ body {
   justify-content: center;
   gap: 3.5rem;
   padding: clamp(2rem, 6vh, 4rem) clamp(1.5rem, 4vw, 4rem) 4rem;
-  max-width: 1100px;
+  max-width: 1220px;
   margin: 0 auto;
   min-height: calc(100vh - 82px);
   position: relative;
