@@ -4,228 +4,25 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ruben Philip - Content Designer</title>
-<style>
-  * { box-sizing: border-box; }
-  html { font-size: 112.5%; scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    color: #1a1a1a;
-    background: #ffffff;
-    font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.6;
-  }
-  .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.5rem clamp(1.5rem, 4vw, 4rem);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    position: sticky;
-    top: 0;
-    background: rgba(255,255,255,0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-    z-index: 10;
-  }
-  .nav .brand {
-    font-family: Georgia, 'Times New Roman', serif;
-    font-weight: 700;
-    font-size: 1.4rem;
-    color: #1a1a1a;
-    text-decoration: none;
-  }
-  .nav .links a {
-    color: #333;
-    text-decoration: none;
-    margin-left: 2rem;
-    font-size: 1.05rem;
-  }
-  .nav .links a:hover { text-decoration: underline; }
-  .nav .links a.active { font-weight: 700; }
-
-  .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    padding: clamp(2rem, 6vh, 4rem) clamp(1.5rem, 4vw, 4rem) 4rem;
-    max-width: 1360px;
-    margin: 0 auto;
-    min-height: calc(100vh - 82px);
-    position: relative;
-  }
-  .hero-text { max-width: 640px; }
-  .greeting {
-    color: #555;
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-  }
-  .hero h1 {
-    font-size: clamp(2.8rem, 4.2vw, 3.75rem);
-    line-height: 1.2;
-    margin: 0 0 1.75rem;
-    font-weight: 400;
-  }
-  .hero .subtext {
-    font-size: 1.3rem;
-    color: #333;
-  }
-  .avatar {
-    flex-shrink: 0;
-    width: 380px;
-    height: 380px;
-    border-radius: 18px;
-    overflow: hidden;
-    background: #fce8d6;
-    box-shadow: 0 25px 60px -20px rgba(0,0,0,0.3);
-  }
-  .avatar img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
-  main {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 clamp(1.5rem, 4vw, 4rem) 6rem;
-  }
-  section { margin-bottom: 5.5rem; scroll-margin-top: 6rem; }
-  section h2 {
-    font-size: 2.1rem;
-    font-weight: 400;
-    margin-bottom: 1.75rem;
-  }
-
-  .about p {
-    font-size: 1.15rem;
-    color: #2a2a2a;
-    margin: 0 0 1.15rem;
-  }
-
-  .role {
-    padding: 1.5rem 0;
-    border-top: 1px solid #e4e4e4;
-  }
-  .role:last-child { border-bottom: 1px solid #e4e4e4; }
-  .role-top {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.4rem;
-  }
-  .role-title { font-size: 1.3rem; }
-  .role-meta {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    color: #777;
-    font-size: 0.98rem;
-    white-space: nowrap;
-  }
-  .role p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    color: #444;
-    font-size: 1.05rem;
-    margin: 0.5rem 0 0;
-  }
-  .role .tags {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    color: #888;
-    font-size: 0.95rem;
-    margin-top: 0.5rem;
-  }
-
-  .work-item {
-    display: block;
-    padding: 1.75rem 1.5rem;
-    margin: 0 -1.5rem;
-    border-top: 1px solid #e4e4e4;
-    color: inherit;
-    text-decoration: none;
-    border-radius: 14px;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  .work-item:last-of-type { border-bottom: 1px solid #e4e4e4; }
-  a.work-item:hover { background: #f7f6f4; cursor: pointer; transform: translateY(-3px); box-shadow: 0 16px 36px -22px rgba(0,0,0,0.35); }
-  .work-item h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1.3rem;
-    font-weight: 700;
-    margin: 0 0 0.4rem;
-  }
-  .work-arrow {
-    opacity: 0;
-    transform: translateX(-4px);
-    transition: opacity 0.15s ease, transform 0.15s ease;
-    font-weight: 400;
-  }
-  a.work-item:hover .work-arrow {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  .work-item p {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    color: #444;
-    font-size: 1.05rem;
-    margin: 0;
-  }
-
-  .contact-links {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    font-size: 1.05rem;
-  }
-  .contact-links a { color: #1a1a1a; display: inline-block; padding: 0.65rem 1.4rem; border: 1px solid #ddd; border-radius: 999px; transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease; }
-  .contact-links a:hover { text-decoration: none; background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
-
-  footer {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-    text-align: center;
-    padding: 2rem;
-    color: #999;
-    font-size: 0.95rem;
-  }
-
-  @media (max-width: 720px) {
-    .hero { flex-direction: column-reverse; padding: 2.5rem 1.5rem 3rem; gap: 1.5rem; min-height: auto; }
-    .nav { padding: 1.25rem 1.5rem; }
-    .nav .links a { margin-left: 1rem; }
-    main { padding: 0 1.5rem 4rem; }
-    .avatar { width: 260px; height: 260px; }
-    .hero h1 { font-size: 2.1rem; }
-    .scroll-hint { display: none; }
-  }
-  .scroll-hint {
-    position: absolute;
-    bottom: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #999;
-    font-size: 1.3rem;
-    text-decoration: none;
-    animation: bounce 2s infinite;
-  }
-  .scroll-hint:hover { color: #1a1a1a; }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(8px); }
-  }
-</style>
+<meta name="description" content="Ruben Philip is a UX Content Designer based in Bangalore, India, currently working at Microsoft on the SharePoint team.">
+<meta property="og:title" content="Ruben Philip - Content Designer">
+<meta property="og:description" content="UX Content Designer based in Bangalore, India, currently working at Microsoft on the SharePoint team.">
+<meta property="og:image" content="https://rubencyriacphilip.github.io/ruben.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rubencyriacphilip.github.io/index.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="ruben.jpg">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <nav class="nav">
-    <a class="brand" href="#">Ruben Philip</a>
+    <a class="brand" href="index.html">Ruben Philip</a>
     <div class="links">
-      <a class="active" href="#">Home</a>
-      <a href="#about">About</a>
-      <a href="#work">Work</a>
-      <a href="#contact">Contact</a>
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Work</a>
+      <a href="resume.html">Resume</a>
+      <a href="index.html#contact">Contact</a>
     </div>
   </nav>
 
@@ -236,7 +33,7 @@
       <p class="subtext">Currently working at Microsoft, on the SharePoint team.</p>
     </div>
     <div class="avatar"><img src="ruben.jpg" alt="Ruben Philip"></div>
-    <a href="#about" class="scroll-hint" aria-label="Scroll to About section">&#8595;</a>
+    <a href="#about" class="scroll-hint" aria-label="Scroll to about section">&#8595;</a>
   </div>
 
   <main>
@@ -244,64 +41,32 @@
       <h2>About</h2>
       <div class="about">
         <p>UX Content Designer with hands-on experience in user research, content design, and product design.</p>
-        <p>I currently write UX content for Microsoft's SharePoint team. Before that, I spent about 6 months on Microsoft Teams, writing for AI features like Recap, AI Interpreter, AI Signer, and Captions.</p>
-        <p>Before Microsoft, I spent 9 years at RCI driving content strategy and social media strategy. Outside my core role, I took the initiative to improve RCI.com's onboarding through UX writing.</p>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-
-      <div class="role">
-        <div class="role-top">
-          <span class="role-title">UX Content Designer, SharePoint</span>
-          <span class="role-meta">Microsoft · Current</span>
-        </div>
-        <p>Writing UX content for Microsoft's SharePoint team.</p>
-      </div>
-
-      <div class="role">
-        <div class="role-top">
-          <span class="role-title">UX Content Designer, Teams</span>
-          <span class="role-meta">Microsoft · ~6 months</span>
-        </div>
-        <p>Wrote content for AI features on Microsoft Teams.</p>
-        <p class="tags">Recap · AI Interpreter · AI Signer · Captions</p>
-      </div>
-
-      <div class="role">
-        <div class="role-top">
-          <span class="role-title">Content &amp; Social Media Strategy</span>
-          <span class="role-meta">RCI · 9 years</span>
-        </div>
-        <p>Drove content strategy and social media strategy. Also led an initiative to improve RCI.com's onboarding experience through UX writing.</p>
+        <p>I currently write UX content for Microsoft's SharePoint team, and spent 9 years before that at RCI driving content strategy and social media strategy.</p>
+        <p><a href="about.html">Read more about me →</a></p>
       </div>
     </section>
 
     <section id="work">
       <h2>Selected work</h2>
-
       <a class="work-item" href="work/project-1.html">
         <h3>Usability Testing &amp; Content Design for an EdTech Startup <span class="work-arrow">→</span></h3>
         <p>Ran usability tests with teachers, defined voice principles, and rewrote onboarding microcopy for an EdTech startup — improving clarity, trust, and sign-up completion.</p>
       </a>
-
-      <div class="work-item">
-        <h3>Project title</h3>
-        <p>Short description of the project, your role, and the outcome.</p>
-      </div>
+      <p><a href="work.html">See all work →</a></p>
     </section>
 
     <section id="contact">
       <h2>Contact</h2>
       <div class="contact-links">
-        <a href="mailto:you@example.com">Email</a>
-        <a href="https://github.com/rubencyriacphilip">GitHub</a>
-        <a href="#">LinkedIn</a>
+        <a href="mailto:rubencyriacphilip@gmail.com">Email</a>
+        <a href="https://github.com/rubencyriacphilip" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/rubenphilip/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </section>
   </main>
 
-  <footer>&copy; 2026 Ruben Philip</footer>
+  <footer>
+    <p>&copy; 2026 Ruben Philip</p>
+  </footer>
 </body>
 </html>
